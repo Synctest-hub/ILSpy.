@@ -375,6 +375,18 @@ namespace ICSharpCode.Decompiler.Tests.TestCases.Correctness
 			});
 		}
 
+#if !NET40 && ROSLYN
+		public static ReadOnlySpan<byte> ReadOnlySpanInitializer_ByteArray()
+		{
+			return new byte[] { 1, 2, 3 };
+		}
+
+		public static ReadOnlySpan<int> ReadOnlySpanInitializer_Int32Array()
+		{
+			return new int[] { 1, 2, 3 };
+		}
+#endif
+
 		public static void Bug270_NestedInitialisers()
 		{
 			NumberFormatInfo[] numberFormats = null;
